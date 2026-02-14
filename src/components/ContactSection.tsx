@@ -19,7 +19,7 @@ const ContactSection = () =>
           <span className="text-sm text-foreground">loncarevicpedja2000@gmail.com</span>
         </a>
         <a
-        href="https://www.linkedin.com/in/predrag-loncarevic"
+        href="https://www.linkedin.com/in/predrag-lon%C4%8Darevi%C4%87-a7b872230"
         target="_blank"
         rel="noopener noreferrer"
         className="group flex items-center gap-2 px-6 py-3 rounded-lg border border-border bg-card hover:border-primary hover:glow-card transition-all duration-300 hover:-translate-y-0.5">
