@@ -1,66 +1,79 @@
 
 
-# Portfolio Website — Predrag Lončarević
+# Portfolio Redesign — zunedaalim.com Style
 
-A single-page, dark-themed portfolio with rich interactive animations showcasing your software engineering work.
+Based on the reference screenshots from zunedaalim.com, here is the plan to redesign your portfolio with the new style, fix mobile nav, enlarge your photo, and add an accordion-style skills section.
 
-## Design & Feel
-- **Dark modern theme** with subtle accent colors (blue/teal highlights)
-- Smooth scroll navigation with a sticky top navbar
-- Your professional photo prominently featured in the hero section
-- Clean typography, generous spacing, polished developer aesthetic
+## Summary of Changes
 
-## Sections (top to bottom)
+1. **Redesign "What I Do" section** to match the reference: large bold heading "WHAT I DO /", a "(SERVICES)" label with description text, then numbered accordion items (01, 02, 03) that expand on scroll/click to reveal details and sub-skills.
 
-### 1. Hero Section
-- Your name, title "Full-Stack Software Engineer", and tech stack tags (.NET · Angular · SQL Server · WordPress)
-- Your uploaded photo with a stylish frame/glow effect
-- Tagline: "I build reliable business systems and practical web solutions"
-- Two CTA buttons: "View My Work" (scrolls down) and "Download CV" (downloads your PDF)
-- Animated typing effect for the tagline and fade-in for elements
+2. **Replace the Tech Stack section** with a new "Skills" section matching the reference: left side shows large text "DEVELOPER / DESIGNER / CREATOR /", right side shows categorized skill lists (Languages and Tools, Frameworks and Libraries, Core CS Concepts) -- adapted to your actual skills.
 
-### 2. What I Do
-- Three cards: Enterprise Software Development, Web & WordPress Solutions, Problem-Solving Mindset
-- Cards animate on hover with lift/glow effects
-- Icons for each card
+3. **Make the hero photo bigger** (increase from w-64/w-80 to w-80/w-96 or larger).
 
-### 3. Experience
-- Timeline-style layout for your role at Insicon (Belgrade)
-- Responsibilities and technologies listed
-- Animated reveal as you scroll to this section
+4. **Fix mobile navigation** so tapping links actually works.
 
-### 4. Projects
-- Two project cards: **Orbis Optika** (e-commerce) and **Kinex** (corporate site)
-- Each card shows tech used, key features, and a link to the live site
-- Hover effects with subtle scale and shadow animations
-- Mention of additional practical solutions/side work
+5. **Redesign Contact section** with a large bold "LET'S MAKE IT HAPPEN" heading to match the reference style.
 
-### 5. Tech Stack
-- Visual grid or icon cloud of your technologies (Backend, Frontend, Database, Web, Tools)
-- Hover animations on each tech icon/badge
+---
 
-### 6. Education & Certifications
-- Cards or timeline for your degree, IT Camp, enterprise experience, and freelance work
+## Technical Details
 
-### 7. About Me
-- Short bio paragraph with your photo or a complementary visual
-- "How I Work" principles listed
+### 1. Redesign WhatIDoSection.tsx
 
-### 8. Contact
-- Email and LinkedIn links with hover animations
-- A closing tagline: "Let's build something reliable and well-structured."
+Replace the current three-card grid with the zunedaalim-style layout:
+- Large "WHAT I DO /" heading (very large, bold, uppercase)
+- "(SERVICES)" label with a paragraph description on the right
+- Horizontal divider
+- Three numbered accordion items that expand when scrolled into view:
+  - **(01) Full-Stack Development** -- with description and numbered sub-skills (C#, .NET, ASP.NET / Angular, TypeScript / SQL Server, T-SQL)
+  - **(02) Web and WordPress Solutions** -- with description and sub-skills (WordPress, WooCommerce / Custom Themes, PHP / Responsive Design)
+  - **(03) Problem-Solving and Architecture** -- with description and sub-skills (Clean Architecture, SOLID / Database Design, REST APIs / Git, Azure DevOps)
+- Use framer-motion `AnimatePresence` and scroll-triggered state to auto-expand each item as user scrolls to it
+- Items are also clickable to toggle open/close
 
-## Animations & Interactions
-- **Scroll-triggered fade/slide-in** for each section as it enters the viewport
-- **Interactive hover effects** on all cards, buttons, and links (scale, glow, underline animations)
-- **Smooth scroll** between sections via navbar links
-- **Typing animation** in the hero section
-- **Animated skill bars or badges** in the tech stack section
+### 2. Replace TechStackSection.tsx with SkillsSection.tsx
 
-## CV Download
-- Your uploaded CV PDF will be available for direct download via a prominent button in the hero and optionally in the contact section
+New layout matching the reference:
+- Left side: large stacked uppercase text "DEVELOPER", "ENGINEER", "CREATOR/"
+- Right side: "Skills" heading with three columns:
+  - **Languages and Tools**: C#, TypeScript, JavaScript, HTML5, CSS3, PHP, SQL, Git, Postman
+  - **Frameworks and Libraries**: .NET, ASP.NET, Angular, Entity Framework, Bootstrap, WordPress, WooCommerce
+  - **Core Concepts**: REST APIs, Database Design, Clean Architecture, OOP, Agile, Azure DevOps
+- Skills animate in (staggered fade) when section scrolls into view
 
-## Assets Used
-- Your uploaded professional photo (hero section)
-- Your uploaded CV PDF (download button)
+### 3. HeroSection.tsx -- Bigger Photo
+
+Change the photo container classes:
+- From: `w-64 h-64 md:w-80 md:h-80`
+- To: `w-72 h-72 md:w-96 md:h-96`
+
+### 4. Fix Mobile Navigation (Navbar.tsx)
+
+The mobile menu links use `handleClick` which calls `scrollIntoView`, but the `AnimatePresence` exit animation with `height: 0` may cause issues. Fix by:
+- Adding a small delay before scrolling so the menu closes first
+- Ensuring the mobile menu overlay has proper `pointer-events` and `z-index`
+- Using `setTimeout` in `handleClick` to allow the close animation to start before scrolling
+
+### 5. Redesign ContactSection.tsx
+
+- Add a large bold "LET'S MAKE IT HAPPEN" heading (matching reference style)
+- Keep email, LinkedIn, and CV download links below
+- Maintain the existing closing tagline
+
+### 6. Update Index.tsx
+
+- Replace `TechStackSection` import with the new `SkillsSection`
+- Keep all other sections in their current order
+
+### Files to Create
+- `src/components/SkillsSection.tsx` (new, replaces TechStackSection)
+
+### Files to Modify
+- `src/components/WhatIDoSection.tsx` (full redesign)
+- `src/components/HeroSection.tsx` (bigger photo)
+- `src/components/Navbar.tsx` (fix mobile nav)
+- `src/components/ContactSection.tsx` (redesign heading)
+- `src/pages/Index.tsx` (swap TechStackSection for SkillsSection)
 
