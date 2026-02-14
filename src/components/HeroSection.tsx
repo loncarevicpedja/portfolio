@@ -106,7 +106,7 @@ const HeroSection = () => {
             <img
               src="/photo.png"
               alt="Predrag Lončarević"
-              className="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-2xl border-2 border-border glow-primary"
+              className="relative w-72 h-72 md:w-96 md:h-96 object-cover rounded-2xl border-2 border-border glow-primary"
             />
           </div>
         </motion.div>

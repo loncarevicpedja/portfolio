@@ -4,8 +4,8 @@ import SectionWrapper from "./SectionWrapper";
 const ContactSection = () => (
   <SectionWrapper id="contact" className="pb-16">
     <div className="text-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">
-        Let's <span className="text-gradient">Connect</span>
+      <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tighter mb-4 text-foreground">
+        Let's Make It <span className="text-primary">Happen</span>
       </h2>
       <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
         Interested in working together or just want to say hello? Reach out anytime.
