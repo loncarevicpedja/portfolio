@@ -25,7 +25,7 @@ const projects = [
 const ProjectsSection = () => (
   <SectionWrapper id="projects">
     <h2 className="text-3xl md:text-4xl font-bold mb-4">
-      <span className="text-gradient">Projects</span>
+      Projects
     </h2>
     <p className="text-muted-foreground mb-12 max-w-2xl">
       A selection of live websites I've built and deployed for real clients.
