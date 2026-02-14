@@ -31,7 +31,7 @@ const items = [
 const EducationSection = () => (
   <SectionWrapper id="education">
     <h2 className="text-3xl md:text-4xl font-bold mb-12">
-      Education & <span className="text-gradient">Certifications</span>
+      Education & Certifications
     </h2>
     <div className="grid sm:grid-cols-2 gap-6">
       {items.map((item) => (

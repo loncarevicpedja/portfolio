@@ -4,7 +4,7 @@ import SectionWrapper from "./SectionWrapper";
 const ExperienceSection = () => (
   <SectionWrapper id="experience">
     <h2 className="text-3xl md:text-4xl font-bold mb-12">
-      <span className="text-gradient">Experience</span>
+      Experience
     </h2>
     <div className="relative pl-8 border-l-2 border-border">
       <div className="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-primary border-4 border-background" />

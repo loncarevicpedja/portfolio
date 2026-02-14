@@ -29,7 +29,7 @@ const HeroSection = () => {
   const tags = [".NET", "Angular", "SQL Server", "WordPress"];
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden pt-24 md:pt-0">
       {/* Background glow */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]" />
@@ -54,7 +54,7 @@ const HeroSection = () => {
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-2">
             Predrag
             <br />
-            <span className="text-gradient">Lončarević</span>
+            Lončarević
           </h1>
           <p className="text-xl text-muted-foreground mt-4 mb-4 font-medium">
             Full-Stack Software Engineer

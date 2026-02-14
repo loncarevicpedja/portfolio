@@ -14,7 +14,7 @@ const AboutSection = () => (
     <div className="grid md:grid-cols-2 gap-12 items-center">
       <div>
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
-          About <span className="text-gradient">Me</span>
+          About Me
         </h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
           I'm a software developer based in Belgrade, Serbia, with a passion for building things that work well and last.
